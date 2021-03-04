@@ -14,6 +14,7 @@ brew 'python'
 brew 'ngrok'
 brew 'yarn'
 brew 'neovim'
+brew 'tmux'
 
 # Apps
 cask 'spotify'
