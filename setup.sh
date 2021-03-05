@@ -27,9 +27,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-#Creating Coding Directory
+#Creating Dev Directories
 mkdir $HOME/Coding
-# Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
+mkdir $HOME/Coding/js
+
+# Removes dotfiles form  $HOME (if exists) and symlinks the .dotfiles
 rm -rf $HOME/.zshrc
 ln -sv $HOME/.dotfiles/.zshrc $HOME/.zshrc
 rm -rf $HOME/.oh-my-zsh
@@ -38,3 +40,5 @@ rm -rf $HOME/.gitconfig
 ln -sv $HOME/.dotfiles/.gitconfig $/HOME/.gitconfig
 rm -rf $HOME/.config/nvim/init.vim
 ln -sv $HOME/.dotfiles/.config/nvim/init.vim $HOME/.config/nvim/init.vim
+rm -rf $HOME/.tmux.conf
+ln -sv $HOME/.dotfiles/.tmux.conf $HOME

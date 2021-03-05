@@ -118,6 +118,6 @@ else
   fi
 fi
 export PKG_CONFIG_PATH=/usr/lib/pkgconfig/
-cat ~/welcome_zsh.txt
+#cat ~/welcome_zsh.txt
 export LC_ALL=en_US.UTF-8
 
