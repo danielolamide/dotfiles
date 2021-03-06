@@ -42,3 +42,7 @@ rm -rf $HOME/.config/nvim/init.vim
 ln -sv $HOME/.dotfiles/.config/nvim/init.vim $HOME/.config/nvim/init.vim
 rm -rf $HOME/.tmux.conf
 ln -sv $HOME/.dotfiles/.tmux.conf $HOME
+rm -rf $HOME/.zprofile
+ln -sv $HOME/.dotfiles/.zprofile $HOME
+rm -rf $HOME/bin
+ln -sv $HOME/.dotfiles/bin $HOME
