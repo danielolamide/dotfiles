@@ -23,14 +23,12 @@ chsh -s /usr/local/bin/zsh
 #Creating Dev Directories
 mkdir $HOME/Coding
 mkdir $HOME/Coding/js
-
+mkdir $HOME/.config/nvim
 # Removes dotfiles form  $HOME (if exists) and symlinks the .dotfiles
 rm -rf $HOME/.zshrc
 ln -sv $HOME/.dotfiles/.zshrc $HOME/.zshrc
-rm -rf $HOME/.oh-my-zsh
-ln -sv $HOME/.dotfiles/.oh-my-zsh  $HOME/.oh-my-zsh
 rm -rf $HOME/.gitconfig
-ln -sv $HOME/.dotfiles/.gitconfig $/HOME/.gitconfig
+ln -sv $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 rm -rf $HOME/.config/nvim/init.vim
 ln -sv $HOME/.dotfiles/.config/nvim/init.vim $HOME/.config/nvim/init.vim
 rm -rf $HOME/.tmux.conf
