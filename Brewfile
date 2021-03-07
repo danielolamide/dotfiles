@@ -15,8 +15,6 @@ brew 'python'
 brew 'yarn'
 brew 'neovim'
 brew 'tmux'
-brew 'zsh-syntax-highlighting'
-brew 'zsh-autosuggestions'
 cask 'ngrok'
 
 # Apps
