@@ -2,8 +2,11 @@
 This repository serves to help me quickly setup my Mac. Basically I don't have to install my core tools and apps manually. Feel free to explore and copy parts to your own dotfiles.
 
 ## How to run
-```
-$ git clone https://github.com/danielolamide/dotfiles.git ~/.dotfiles
-$ cd ~/.dotfiles
-$ ./setup.sh
-```
+1. `$ git clone https://github.com/danielolamide/dotfiles.git ~/.dotfiles`
+2. `$ cd ~/.dotfiles`
+3. Install Oh-my-zsh `$ ./install-oh-my-zsh.sh`
+4. Run Setup `$ ./setup.sh`
+5. Install Vim Plug `$ ./install-vim-plug.sh`
+6. Run `$ ./npm.sh'
+
+Das it :100: !!
