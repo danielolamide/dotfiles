@@ -4,7 +4,7 @@ echo "Setting up your MacBook"
 
 #Check if HomeBrew exits else install it
 if test ! $(which brew); then
- x /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 #Update HomeBrew
