@@ -102,27 +102,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-. `brew --prefix`/etc/profile.d/z.sh
-export LDFLAGS="-L/usr/local/opt/zlib/lib"
-export CPPFLAGS="-I/usr/local/opt/zlib/include"
-export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
-#export PATH=${PATH}:$ANDROID_SDK_ROOT/tools
-export ANDROID_HOME="/Users/danielolamide/Library/Android/sdk"
-export PATH="${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
-export JAVA_HOME=`/usr/libexec/java_home`
-export PATH=${PATH}:/usr/bin/python3
-
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-source $HOME/.rvm/scripts/rvm
-export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"
