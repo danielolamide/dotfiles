@@ -19,7 +19,11 @@ brew cleanup
 #Set default shell as Zsh
 chsh -s /usr/local/bin/zsh
 
-
+#Vim Plug Install
+echo "Installing Vim Plug"
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+      
 #Creating Dev Directories
 mkdir $HOME/Coding
 mkdir $HOME/Coding/js
