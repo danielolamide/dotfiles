@@ -25,9 +25,8 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
       
 #Creating Dev Directories
-mkdir $HOME/Coding
-mkdir $HOME/Coding/js
-mkdir $HOME/.config/nvim
+mkdir -p  $HOME/Coding/js
+mkdir -p  $HOME/.config/nvim
 # Removes dotfiles form  $HOME (if exists) and symlinks the .dotfiles
 rm -rf $HOME/.zshrc
 ln -sv $HOME/.dotfiles/.zshrc $HOME/.zshrc
