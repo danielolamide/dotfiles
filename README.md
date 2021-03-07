@@ -6,7 +6,6 @@ This repository serves to help me quickly setup my Mac. Basically I don't have t
 2. `$ cd ~/.dotfiles`
 3. Install Oh-my-zsh `$ ./install-oh-my-zsh.sh`
 4. Run Setup `$ ./setup.sh`
-5. Install Vim Plug `$ ./install-vim-plug.sh`
-6. Run `$ ./npm.sh'
+5. Run `$ ./npm.sh'
 
 Das it :100: !!
