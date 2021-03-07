@@ -7,14 +7,15 @@ tap 'homebrew/cask-fonts'
 brew 'gh'
 brew 'tree'
 brew 'zsh'
+
 # Programming
 brew 'npm'
 brew 'node'
 brew 'python'
-brew 'ngrok'
 brew 'yarn'
 brew 'neovim'
 brew 'tmux'
+cask 'ngrok'
 
 # Apps
 cask 'spotify'
