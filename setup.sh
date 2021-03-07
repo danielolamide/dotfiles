@@ -43,6 +43,9 @@ ln -sv $HOME/.dotfiles/.zprofile $HOME
 rm -rf $HOME/bin
 ln -sv $HOME/.dotfiles/bin $HOME
 
+./npm.sh
 # Set macOS preferences
 # We will run this last because this will reload the shell
 source .macos
+echo "Success"
+
