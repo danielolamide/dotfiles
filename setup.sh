@@ -27,6 +27,8 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 #Creating Dev Directories
 mkdir -p  $HOME/Coding/js
 mkdir -p  $HOME/.config/nvim
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 # Removes dotfiles form  $HOME (if exists) and symlinks the .dotfiles
 rm -rf $HOME/.zshrc
 ln -sv $HOME/.dotfiles/.zshrc $HOME/.zshrc
