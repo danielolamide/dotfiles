@@ -19,13 +19,6 @@ brew cleanup
 #Set default shell as Zsh
 chsh -s /usr/local/bin/zsh
 
-#Oh-My-Zsh installation
-echo "Installing Oh-My-Zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-#Vim-plug installation
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 #Creating Dev Directories
 mkdir $HOME/Coding
