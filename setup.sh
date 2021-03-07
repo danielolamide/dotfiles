@@ -34,7 +34,7 @@ ln -sv $HOME/.dotfiles/.zshrc $HOME/.zshrc
 rm -rf $HOME/.gitconfig
 ln -sv $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 rm -rf $HOME/.config/nvim/init.vim
-ln -sv $HOME/.dotfiles/.config/nvim/init.vim $HOME/.config/nvim/init.vim
+ln -sv $HOME/.dotfiles/.config/nvim/init.vim $HOME/.config/nvim/
 rm -rf $HOME/.tmux.conf
 ln -sv $HOME/.dotfiles/.tmux.conf $HOME
 rm -rf $HOME/.zprofile
