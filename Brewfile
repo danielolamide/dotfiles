@@ -1,6 +1,7 @@
 # Taps
 tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
+tap 'mongodb/crew'
 
 
 # Binaries
@@ -15,6 +16,8 @@ brew 'python'
 brew 'yarn'
 brew 'neovim'
 brew 'tmux'
+brew 'mongodb-community@4.4'
+brew 'watchman'
 cask 'ngrok'
 
 # Apps
@@ -34,3 +37,4 @@ cask 'background-music'
 
 # Fonts
 cask 'font-fira-code'
+cask 'font-fira-code-nerd-font'

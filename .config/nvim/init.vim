@@ -20,8 +20,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'jaredgorski/fogbell.vim'
-Plug 'bluz71/vim-nightfly-guicolors'
+Plug 'arzg/vim-colors-xcode'
 call plug#end()
 
 " Autosave
@@ -53,19 +52,19 @@ function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
  exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
-autocmd VimEnter * call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
-autocmd VimEnter * call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
-autocmd VimEnter * call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-autocmd VimEnter * call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-autocmd VimEnter * call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-autocmd VimEnter * call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
-autocmd VimEnter * call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-autocmd VimEnter * call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-autocmd VimEnter * call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
-autocmd VimEnter * call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-autocmd VimEnter * call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
-autocmd VimEnter * call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-autocmd VimEnter * call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
 " NERDCommenterToggle
 let g:NERDCustomDelimiters={
@@ -74,9 +73,14 @@ let g:NERDCustomDelimiters={
 
 "Color Config
 let g:lightline = { 'colorscheme': 'nightfly' }
-"let g:moonflyUnderlineMatchParen = 1
-let g:nightflyCursorColor = 1
-colorscheme nightfly
+colorscheme xcodedarkhc
+" Vim Colors
+augroup vim-colors-xcode
+    autocmd!
+augroup END
+
+autocmd vim-colors-xcode ColorScheme * hi Comment        cterm=italic gui=italic
+autocmd vim-colors-xcode ColorScheme * hi SpecialComment cterm=italic gui=italic
 
 " Vim Devicon
 "let g:webdevicons_conceal_nerdtree_brackets = 1
@@ -99,3 +103,29 @@ syntax enable
 if exists("g:loaded_webdevicons")
 	call webdevicons#refresh()
 endif
+
+" Split window
+nmap sv :split<Return><C-w>w
+nmap ss :vsplit<Return><C-w>w
+
+" Move window
+map sh <C-w>h
+map sk <C-w>k
+map sj <C-w>j
+map sl <C-w>l
+
+" Switch tab
+nmap <S-Tab> :tabprev<Return>
+nmap <Tab> :tabnext<Return>
+
+" Coc Intalls
+let g:coc_global_extensions = [
+	\'coc-tailwindcss',
+	\'coc-json',
+	\'coc-prettier',
+	\'coc-css',
+	\'coc-html',
+	\'coc-html-css-support',
+	\'coc-python',
+	\'coc-tsserver',
+	\]
