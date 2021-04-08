@@ -19,6 +19,7 @@ brew 'tmux'
 brew 'mongodb-community@4.4'
 brew 'watchman'
 cask 'ngrok'
+cask 'react-native-debugger'
 
 # Apps
 cask 'spotify'
