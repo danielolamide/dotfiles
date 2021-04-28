@@ -18,6 +18,7 @@ brew 'neovim'
 brew 'tmux'
 brew 'mongodb-community@4.4'
 brew 'watchman'
+brew 'postgresql'
 cask 'ngrok'
 cask 'react-native-debugger'
 
