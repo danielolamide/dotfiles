@@ -1,10 +1,56 @@
 #!/bin/bash
+
+#Colors
+green=$'\e[1;32m'
+default=$'\e[0m'
+yellow=$'\e[1;33m'
+red=$'\e[1;31m'
+
+echo "Creating a new ExpressJS Application in $green$(pwd)/$1$default"
+echo $'\n'
+mkdir $1
+echo "Installing packages, this may take a few minutes"
+echo "Installing $green express, dotenv$default"
+cd $1
 npm init -y
-touch index.js
-npm install express
-mkdir -p src/config src/routes src/services src/models
 git init
+touch index.js
 touch .gitignore .env
 echo $'.DS_Store\nnode_modules\n.env' > .gitignore
+npm install express
+npm install dotenv
 
+#install passport
+echo $'\n'
+read -n1 -p "Install${green} Passport.js${default} (Authentication)? (y/n) " passport
+echo $'\n'
+case $passport in
+	y|Y) npm install passport;;
+	n|N) echo "${yellow}Proceeding setup without Passport.js${default}" ;;
+	*) echo "${red}Invalid response${default}";;
+esac
 
+#install multer
+echo $'\n'
+read -n1 -p "Install${green} Multer${default} (File Upload)? (y/n) " passport
+echo $'\n'
+case $passport in
+	y|Y) npm install multer;;
+	n|N) echo "${yellow}Proceeding setup without Multer${default}" ;;
+	*) echo "${red}Invalid response${default}";;
+esac
+
+#install mongodb
+echo $'\n'
+read -n1 -p "Install${green} MongoDB${default} (Database)? (y/n) " passport
+echo $'\n'
+case $passport in
+	y|Y) npm install mongodb;;
+	n|N) echo "${yellow}Proceeding setup without MongoDB${default}" ;;
+	*) echo "${red}Invalid response${default}";;
+esac
+
+echo "Initializing $1 project structure"
+mkdir -p src/config src/routes src/services src/models
+
+echo "Setup complete 🎉"
