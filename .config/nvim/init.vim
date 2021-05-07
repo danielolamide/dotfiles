@@ -118,3 +118,4 @@ luafile ~/.config/nvim/lua/py-lsp.lua
 luafile ~/.config/nvim/lua/php-lsp.lua
 luafile ~/.config/nvim/lua/json-lsp.lua
 luafile ~/.config/nvim/lua/compe-config.lua
+luafile ~/.config/nvim/lua/bash-lsp.lua

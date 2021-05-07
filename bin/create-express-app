@@ -1,0 +1,10 @@
+#!/bin/bash
+npm init -y
+touch index.js
+npm install express
+mkdir -p src/config src/routes src/services src/models
+git init
+touch .gitignore .env
+echo $'.DS_Store\nnode_modules\n.env' > .gitignore
+
+
