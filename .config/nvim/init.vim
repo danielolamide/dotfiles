@@ -9,9 +9,11 @@ set smartindent
 set conceallevel=3
 set termguicolors
 
+
 " Plugins
 call plug#begin()
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
 Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug '907th/vim-auto-save'
@@ -21,6 +23,8 @@ Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'arzg/vim-colors-xcode'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 " Autosave
@@ -66,15 +70,13 @@ call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
-" NERDCommenterToggle
+"NERDCommenterToggle
 let g:NERDCustomDelimiters={
 	\ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
 \}
 
-"Color Config
-let g:lightline = { 'colorscheme': 'nightfly' }
 colorscheme xcodedarkhc
-" Vim Colors
+"Vim Colors
 augroup vim-colors-xcode
     autocmd!
 augroup END
@@ -82,50 +84,37 @@ augroup END
 autocmd vim-colors-xcode ColorScheme * hi Comment        cterm=italic gui=italic
 autocmd vim-colors-xcode ColorScheme * hi SpecialComment cterm=italic gui=italic
 
-" Vim Devicon
+"Vim Devicon
 "let g:webdevicons_conceal_nerdtree_brackets = 1
 
-"Tab AutoComplete
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" after a re-source, fix syntax matching issues (concealing brackets):
+"after a re-source, fix syntax matching issues (concealing brackets):
 "get rid of [  ] around icons in NerdTree
 syntax enable
 if exists("g:loaded_webdevicons")
 	call webdevicons#refresh()
 endif
 
-" Split window
+"Split window
 nmap sv :split<Return><C-w>w
 nmap ss :vsplit<Return><C-w>w
 
-" Move window
+"Move window
 map sh <C-w>h
 map sk <C-w>k
 map sj <C-w>j
 map sl <C-w>l
 
-" Switch tab
+"Switch tab
 nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
 
-" Coc Intalls
-let g:coc_global_extensions = [
-	\'coc-tailwindcss',
-	\'coc-json',
-	\'coc-prettier',
-	\'coc-css',
-	\'coc-html',
-	\'coc-html-css-support',
-	\'coc-python',
-	\'coc-tsserver',
-	\]
+"Vim
+source ~/.config/nvim/plug-config/lsp-config.vim
+source ~/.config/nvim/plug-config/ultisnips-config.vim
+
+"Lua
+luafile ~/.config/nvim/lua/js-lsp.lua
+luafile ~/.config/nvim/lua/py-lsp.lua
+luafile ~/.config/nvim/lua/php-lsp.lua
+luafile ~/.config/nvim/lua/json-lsp.lua
+luafile ~/.config/nvim/lua/compe-config.lua

@@ -5,6 +5,12 @@ npm install -g eslint
 npm install -g typescript
 npm install -g prettier
 npm install -g firebase-tools
-#npm install netlify-cli -g
 npm install -g nodemon
+
+
+#LSP
+npm install -g typescript typescript-language-server
+npm install -g pyright
+npm install -g intelephense
+npm install -g vscode-json-languageserver
 
