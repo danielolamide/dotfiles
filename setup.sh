@@ -31,6 +31,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 #Creating Dev Directories
 mkdir -p  $HOME/Coding/js
 mkdir -p  $HOME/.config/nvim
+mkdir -p $HOME/.config/alacritty
 mkdir -p	$HOME/.oh-my-zsh/custom && touch $HOME/.oh-my-zsh/custom/aliases.zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
@@ -43,7 +44,10 @@ rm -rf $HOME/.gitconfig
 ln -sv $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 #init.vim
 rm -rf $HOME/.config/nvim/init.vim
-ln -sv $HOME/.dotfiles/.config/nvim/init.vim $HOME/.config/nvim/
+ln -sv $HOME/.dotfiles/.config/nvim/ $HOME/.config/nvim/
+#alacritty
+rm -rf $HOME/.config/alacritty/alacritty.yaml
+ln -sv $HOME/.dotfiles/.config/alacritty $HOME/.config/alacritty/
 #tmux.conf
 rm -rf $HOME/.tmux.conf
 ln -sv $HOME/.dotfiles/.tmux.conf $HOME
@@ -61,6 +65,6 @@ ln -sv $HOME/.dotfiles/.oh-my-zsh/custom/aliases.zsh $HOME/.oh-my-zsh/custom/
 ./npm.sh
 # Set macOS preferences
 # We will run this last because this will reload the shell
-source .macos
+#source .macos
 echo "Success"
 

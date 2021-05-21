@@ -7,8 +7,12 @@ set guicursor=
 set autoindent
 set smartindent
 set conceallevel=3
-set termguicolors
 
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 " Plugins
 call plug#begin()
@@ -23,8 +27,11 @@ Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'arzg/vim-colors-xcode'
+Plug 'whatyouhide/vim-gotham'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/greplace.vim'
 call plug#end()
 
 " Autosave
@@ -75,14 +82,10 @@ let g:NERDCustomDelimiters={
 	\ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
 \}
 
-colorscheme xcodedarkhc
 "Vim Colors
-augroup vim-colors-xcode
-    autocmd!
-augroup END
-
-autocmd vim-colors-xcode ColorScheme * hi Comment        cterm=italic gui=italic
-autocmd vim-colors-xcode ColorScheme * hi SpecialComment cterm=italic gui=italic
+colorscheme gotham
+let g:lightline = { 'colorscheme': 'gotham' }
+let g:lightline = { 'colorscheme': 'gotham256' }
 
 "Vim Devicon
 "let g:webdevicons_conceal_nerdtree_brackets = 1
@@ -119,3 +122,9 @@ luafile ~/.config/nvim/lua/php-lsp.lua
 luafile ~/.config/nvim/lua/json-lsp.lua
 luafile ~/.config/nvim/lua/compe-config.lua
 luafile ~/.config/nvim/lua/bash-lsp.lua
+luafile ~/.config/nvim/lua/html-lsp.lua
+luafile ~/.config/nvim/lua/css-lsp.lua
+
+"Nvim-compe
+"inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"

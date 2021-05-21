@@ -2,6 +2,7 @@
 tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'mongodb/crew'
+tap 'heroku/brew'
 
 
 # Binaries
@@ -21,6 +22,7 @@ brew 'watchman'
 brew 'postgresql'
 cask 'ngrok'
 cask 'react-native-debugger'
+brew 'heroku'
 
 # Apps
 cask 'spotify'
@@ -30,11 +32,10 @@ cask 'vlc'
 cask 'zoom'
 cask 'spectacle'
 cask 'figma'
-cask 'iterm2'
 cask 'postman'
 cask 'tunnelblick'
 cask 'docker'
-cask 'background-music'
+cask 'alacritty'
 
 
 # Fonts
