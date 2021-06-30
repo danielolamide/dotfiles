@@ -23,6 +23,7 @@ brew 'postgresql'
 cask 'ngrok'
 cask 'react-native-debugger'
 brew 'heroku'
+brew 'php'
 
 # Apps
 cask 'spotify'
@@ -36,6 +37,7 @@ cask 'postman'
 cask 'tunnelblick'
 cask 'docker'
 cask 'alacritty'
+cask 'skype'
 
 
 # Fonts

@@ -113,3 +113,5 @@ if [ -f '/Users/danielolamide/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/d
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/danielolamide/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/danielolamide/google-cloud-sdk/completion.zsh.inc'; fi
+
+export PATH="/usr/local/opt/php@8.0/bin:$PATH"

@@ -14,24 +14,28 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+
 " Plugins
 call plug#begin()
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'itchyny/lightline.vim'
-Plug 'ryanoasis/vim-devicons'
 Plug '907th/vim-auto-save'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'arzg/vim-colors-xcode'
 Plug 'whatyouhide/vim-gotham'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/greplace.vim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+"Plug 'lukas-reineke/indent-blankline.nvim'
+"Plug 'akinsho/nvim-bufferline.lua'
 call plug#end()
 
 " Autosave
@@ -39,7 +43,7 @@ let g:auto_save = 1
 let g:auto_save_silent=1
 
 " Ctrlp
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+"let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " Move Lines
 nnoremap ∆ :m .+1<CR>==
@@ -49,34 +53,8 @@ inoremap ˚ <Esc>:m .-2<CR>==gi
 vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
 
-" NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-map <C-b> :NERDTreeToggle<CR>
 nmap // <plug>NERDCommenterToggle
 vmap // <plug>NERDCommenterToggle
-let NERDTreeShowHidden=1
-
-" NERDTrees File highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
- exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
- exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
-
-call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
-call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
-
 "NERDCommenterToggle
 let g:NERDCustomDelimiters={
 	\ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
@@ -87,15 +65,6 @@ colorscheme gotham
 let g:lightline = { 'colorscheme': 'gotham' }
 let g:lightline = { 'colorscheme': 'gotham256' }
 
-"Vim Devicon
-"let g:webdevicons_conceal_nerdtree_brackets = 1
-
-"after a re-source, fix syntax matching issues (concealing brackets):
-"get rid of [  ] around icons in NerdTree
-syntax enable
-if exists("g:loaded_webdevicons")
-	call webdevicons#refresh()
-endif
 
 "Split window
 nmap sv :split<Return><C-w>w
@@ -114,6 +83,9 @@ nmap <Tab> :tabnext<Return>
 "Vim
 source ~/.config/nvim/plug-config/lsp-config.vim
 source ~/.config/nvim/plug-config/ultisnips-config.vim
+source ~/.config/nvim/plug-config/nvim-tree.vim
+source ~/.config/nvim/plug-config/telescope.vim
+source ~/.config/nvim/plug-config/compe-config.vim 
 
 "Lua
 luafile ~/.config/nvim/lua/js-lsp.lua
@@ -124,7 +96,31 @@ luafile ~/.config/nvim/lua/compe-config.lua
 luafile ~/.config/nvim/lua/bash-lsp.lua
 luafile ~/.config/nvim/lua/html-lsp.lua
 luafile ~/.config/nvim/lua/css-lsp.lua
+"luafile ~/.config/nvim/plug-config/bufferline-config.lua
 
-"Nvim-compe
-"inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"Rust Analyzer
+lua << EOF
+local nvim_lsp = require'lspconfig'
+
+local on_attach = function(client)
+    require'completion'.on_attach(client)
+end
+
+nvim_lsp.rust_analyzer.setup({
+    on_attach=on_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            assist = {
+                importGranularity = "module",
+                importPrefix = "by_self",
+            },
+            cargo = {
+                loadOutDirsFromCheck = true
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})
+EOF
