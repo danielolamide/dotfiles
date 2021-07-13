@@ -41,3 +41,8 @@ colors:
     magenta: "0x888ba5"
     cyan: "0x599caa"
     white: "0xd3ebe9"
+
+cursor:
+  style:
+    blinking: Always
+  blink_interval: 500
