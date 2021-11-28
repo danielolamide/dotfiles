@@ -1,3 +1,6 @@
+"------------------------------------
+"General
+"------------------------------------
 set encoding=UTF-8
 set tabstop=2
 set number
@@ -7,6 +10,9 @@ set guicursor=
 set autoindent
 set smartindent
 set conceallevel=3
+set mouse=a
+set list
+set listchars=tab:▸\ ,trail:·
 
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -14,11 +20,12 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-
+"-----------------------------------
 " Plugins
+"-----------------------------------
 call plug#begin()
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
+"Plug 'hrsh7th/nvim-compe'
 Plug 'itchyny/lightline.vim'
 Plug '907th/vim-auto-save'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -28,15 +35,20 @@ Plug 'whatyouhide/vim-gotham'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
-Plug 'vim-scripts/greplace.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'cohama/lexima.vim'
-"Plug 'lukas-reineke/indent-blankline.nvim'
-"Plug 'akinsho/nvim-bufferline.lua'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+
+
 call plug#end()
 
 " Autosave
@@ -45,6 +57,12 @@ let g:auto_save_silent=1
 
 " Ctrlp
 "let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+
+"-------------------------------
+"Key Maps
+"-------------------------------
+
 
 " Move Lines
 nnoremap ∆ :m .+1<CR>==
@@ -56,6 +74,7 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 
 nmap // <plug>NERDCommenterToggle
 vmap // <plug>NERDCommenterToggle
+
 "NERDCommenterToggle
 let g:NERDCustomDelimiters={
 	\ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
@@ -82,46 +101,21 @@ nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
 
 "Vim
-source ~/.config/nvim/plug-config/lsp-config.vim
 source ~/.config/nvim/plug-config/ultisnips-config.vim
 source ~/.config/nvim/plug-config/nvim-tree.vim
 source ~/.config/nvim/plug-config/telescope.vim
-source ~/.config/nvim/plug-config/compe-config.vim 
+"source ~/.config/nvim/plug-config/compe-config.vim 
 
 "Lua
 luafile ~/.config/nvim/lua/js-lsp.lua
 luafile ~/.config/nvim/lua/py-lsp.lua
 luafile ~/.config/nvim/lua/php-lsp.lua
 luafile ~/.config/nvim/lua/json-lsp.lua
-luafile ~/.config/nvim/lua/compe-config.lua
 luafile ~/.config/nvim/lua/bash-lsp.lua
 luafile ~/.config/nvim/lua/html-lsp.lua
 luafile ~/.config/nvim/lua/css-lsp.lua
-"luafile ~/.config/nvim/plug-config/bufferline-config.lua
+source ~/.config/nvim/lua/_nvim-comp.lua
+luafile ~/.config/nvim/lua/_nvim-tree.lua
+luafile ~/.config/nvim/lua/_lsp-config.lua
+"luafile ~/.config/nvim/lua/compe-config.lua
 
-"Rust Analyzer
-lua << EOF
-local nvim_lsp = require'lspconfig'
-
-local on_attach = function(client)
-    require'completion'.on_attach(client)
-end
-
-nvim_lsp.rust_analyzer.setup({
-    on_attach=on_attach,
-    settings = {
-        ["rust-analyzer"] = {
-            assist = {
-                importGranularity = "module",
-                importPrefix = "by_self",
-            },
-            cargo = {
-                loadOutDirsFromCheck = true
-            },
-            procMacro = {
-                enable = true
-            },
-        }
-    }
-})
-EOF
