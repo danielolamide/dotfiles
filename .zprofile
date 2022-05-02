@@ -1,4 +1,3 @@
-#Custom Bash Scripts
 export PATH="$HOME/bin/:$PATH"
 export JAVA_HOME=$(/usr/libexec/java_home -v1.8)
 

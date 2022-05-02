@@ -30,7 +30,7 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 
-SCREENSHOT_FOLDER=~/Desktop/Screenshots
+SCREENSHOT_FOLDER=$HOME/Desktop/Screenshots
 mkdir -p $SCREENSHOT_FOLDER
 # Set default screenshot location to a specific folder
 defaults write com.apple.screencapture location $SCREENSHOT_FOLDER
