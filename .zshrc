@@ -114,4 +114,15 @@ if [ -f '/Users/danielolamide/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/d
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/danielolamide/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/danielolamide/google-cloud-sdk/completion.zsh.inc'; fi
 
-export PATH="/usr/local/opt/php@8.0/bin:$PATH"
+#PHPBrew
+[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+
+#jenv config
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+#jdtls setup
+export JDTLS_HOME="$HOME/.config/nvim/jdtls"
+export PATH=$PATH:$HOME/.local/bin
+

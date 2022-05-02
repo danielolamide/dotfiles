@@ -13,3 +13,7 @@ alias ga="git add"
 
 #Functions
 cd() { builtin cd "$@" && ls -a; }
+
+#ssh
+alias brij-api-prod='ssh -i ~/.ssh/brij-api.cer ubuntu@35.158.32.87'
+alias brij-backend='ssh forge@3.221.38.202'

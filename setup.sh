@@ -39,7 +39,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 #.zshrc
 rm -rf $HOME/.zshrc
 ln -sv $HOME/.dotfiles/.zshrc $HOME/.zshrc
-.gitconfig
+#.gitconfig
 rm -rf $HOME/.gitconfig
 ln -sv $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 #init.vim

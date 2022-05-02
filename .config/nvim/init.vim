@@ -3,7 +3,7 @@
 "------------------------------------
 set encoding=UTF-8
 set tabstop=2
-set number
+set number relativenumber
 set softtabstop=2
 set shiftwidth=2
 set guicursor=
@@ -33,7 +33,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'preservim/nerdcommenter'
 Plug 'whatyouhide/vim-gotham'
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets' , {'rtp' : '.'}
 Plug 'tpope/vim-surround'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
@@ -47,6 +47,8 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'ray-x/lsp_signature.nvim'
+Plug 'voldikss/vim-floaterm'
 
 
 call plug#end()
@@ -84,6 +86,15 @@ let g:NERDCustomDelimiters={
 colorscheme gotham
 let g:lightline = { 'colorscheme': 'gotham' }
 let g:lightline = { 'colorscheme': 'gotham256' }
+hi Normal guibg=none ctermbg=none
+hi LineNr guibg=none ctermbg=none
+hi Folded guibg=none ctermbg=none
+hi NonText guibg=none ctermbg=none
+hi SpecialKey guibg=none ctermbg=none
+hi VertSplit guibg=none ctermbg=none
+hi SignColumn guibg=none ctermbg=none
+hi EndOfBuffer guibg=none ctermbg=none
+
 
 
 "Split window
@@ -96,15 +107,22 @@ map sk <C-w>k
 map sj <C-w>j
 map sl <C-w>l
 
-"Switch tab
-nmap <S-Tab> :tabprev<Return>
-nmap <Tab> :tabnext<Return>
+" Allow gf to open non-existent files
+map gf :edit <cfile><cr>
+
+
+
+
+
+"-------------------------------
+"Plugin Configurations
+"-------------------------------
 
 "Vim
 source ~/.config/nvim/plug-config/ultisnips-config.vim
 source ~/.config/nvim/plug-config/nvim-tree.vim
 source ~/.config/nvim/plug-config/telescope.vim
-"source ~/.config/nvim/plug-config/compe-config.vim 
+source ~/.config/nvim/plug-config/floaterm.vim
 
 "Lua
 luafile ~/.config/nvim/lua/js-lsp.lua
@@ -117,5 +135,5 @@ luafile ~/.config/nvim/lua/css-lsp.lua
 source ~/.config/nvim/lua/_nvim-comp.lua
 luafile ~/.config/nvim/lua/_nvim-tree.lua
 luafile ~/.config/nvim/lua/_lsp-config.lua
-"luafile ~/.config/nvim/lua/compe-config.lua
+luafile ~/.config/nvim/lua/_lsp-signature-config.lua
 

@@ -33,4 +33,4 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 SCREENSHOT_FOLDER=~/Desktop/Screenshots
 mkdir -p $SCREENSHOT_FOLDER
 # Set default screenshot location to a specific folder
-defaults write com.apply.screencapture location $SCREENSHOT_FOLDER
+defaults write com.apple.screencapture location $SCREENSHOT_FOLDER

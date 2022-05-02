@@ -10,7 +10,7 @@ echo "Creating a new ExpressJS Application in $green$(pwd)/$1$default"
 echo $'\n'
 mkdir $1
 echo "Installing packages, this may take a few minutes"
-echo "Installing $green express, dotenv$default"
+echo "Installing $green express, dotenv, nodemon$default"
 cd $1
 npm init -y
 git init
@@ -19,6 +19,7 @@ touch .gitignore .env
 echo $'.DS_Store\nnode_modules\n.env' > .gitignore
 npm install express
 npm install dotenv
+npm install --save nodemon
 
 #install passport
 echo $'\n'
@@ -51,6 +52,6 @@ case $passport in
 esac
 
 echo "Initializing $1 project structure"
-mkdir -p src/config src/routes src/services src/models
+mkdir -p src/config src/routes src/controllers src/models
 
 echo "Setup complete 🎉"
