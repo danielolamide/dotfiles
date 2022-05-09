@@ -13,6 +13,7 @@ set conceallevel=3
 set mouse=a
 set list
 set listchars=tab:▸\ ,trail:·
+set scrolloff=15
 
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -25,7 +26,7 @@ endif
 "-----------------------------------
 call plug#begin()
 Plug 'neovim/nvim-lspconfig'
-"Plug 'hrsh7th/nvim-compe'
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'itchyny/lightline.vim'
 Plug '907th/vim-auto-save'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -49,6 +50,8 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'voldikss/vim-floaterm'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'p00f/nvim-ts-rainbow'
 
 
 call plug#end()
@@ -134,6 +137,7 @@ luafile ~/.config/nvim/lua/html-lsp.lua
 luafile ~/.config/nvim/lua/css-lsp.lua
 source ~/.config/nvim/lua/_nvim-comp.lua
 luafile ~/.config/nvim/lua/_nvim-tree.lua
+luafile ~/.config/nvim/lua/_lsp-installer.lua
 luafile ~/.config/nvim/lua/_lsp-config.lua
 luafile ~/.config/nvim/lua/_lsp-signature-config.lua
-
+luafile ~/.config/nvim/lua/_nvim-treesitter.lua
