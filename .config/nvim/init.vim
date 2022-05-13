@@ -113,6 +113,9 @@ map sl <C-w>l
 " Allow gf to open non-existent files
 map gf :edit <cfile><cr>
 
+"Reach
+au BufReadPost *.rsh set filetype=reach
+au Filetype reach set syntax=javascript
 
 
 

@@ -33,7 +33,7 @@ require'nvim-tree'.setup {
 	filters = {
 		dotfiles = false,
 		custom = {".git", "node_modules", ".cache"},
-		exclude = {".env"}
+		exclude = {".env",".gitignore"}
 	},
 	git = {
 		ignore = true

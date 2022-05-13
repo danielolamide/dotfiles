@@ -7,6 +7,7 @@ window:
     y: 25
   decorations: transparent
   startup_mode: Windowed
+  opacity : 0.9
 
 font:
   normal:
@@ -17,8 +18,6 @@ font:
     x: 0
     y: 5
 
-background_opacity:
-  0.9
 
 # Colors (Gotham)
 colors:
