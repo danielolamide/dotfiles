@@ -107,22 +107,3 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/danielolamide/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/danielolamide/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/danielolamide/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/danielolamide/google-cloud-sdk/completion.zsh.inc'; fi
-
-#PHPBrew
-[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
-export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
-
-#jenv config
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
-#jdtls setup
-export JDTLS_HOME="$HOME/.config/nvim/jdtls"
-export PATH=$PATH:$HOME/.local/bin
-
