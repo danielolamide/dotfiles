@@ -1,9 +1,7 @@
 # Taps
 tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
-tap 'mongodb/crew'
-tap 'heroku/brew'
-
+tap 'shivammathur/php'
 
 # Binaries
 brew 'gh'
@@ -17,13 +15,12 @@ brew 'python'
 brew 'yarn'
 brew 'neovim'
 brew 'tmux'
-brew 'mongodb-community@4.4'
 brew 'watchman'
 brew 'postgresql'
 cask 'ngrok'
 cask 'react-native-debugger'
-brew 'heroku'
-brew 'php'
+brew 'shivammathur/php/php@8.0'
+brew 'mysql' 
 
 # Apps
 cask 'spotify'
