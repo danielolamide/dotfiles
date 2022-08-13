@@ -7,6 +7,14 @@ if test ! $(which brew); then
  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
+
+#.zshrc
+rm -rf $HOME/.zshrc
+ln -sv $HOME/.dotfiles/.zshrc $HOME/.zshrc
+#.zprofile
+rm -rf $HOME/.zprofile
+ln -sv $HOME/.dotfiles/.zprofile $HOME/.zprofile
+
 #Update HomeBrew
 brew update
 
@@ -19,10 +27,10 @@ brew cleanup
 #Set default shell as Zsh
 chsh -s /usr/local/bin/zsh
 
-#Vim Plug Install
-echo "Installing Vim Plug"
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+#Packer Installation
+echo "Installing Packer"
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 #NVM Install
 echo "Installing Node Version Manager"
@@ -30,30 +38,24 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 #Creating Dev Directories
 mkdir -p  $HOME/Coding/js
-mkdir -p  $HOME/.config/nvim
-mkdir -p $HOME/.config/alacritty
+mkdir -p  $HOME/.config
 mkdir -p	$HOME/.oh-my-zsh/custom 
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
 # Removes dotfiles form  $HOME (if exists) and symlinks the .dotfiles
-#.zshrc
-rm -rf $HOME/.zshrc
-ln -sv $HOME/.dotfiles/.zshrc $HOME/.zshrc
 #.gitconfig
 rm -rf $HOME/.gitconfig
 ln -sv $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
-#init.vim
-rm -rf $HOME/.config/nvim/init.vim
-ln -sv $HOME/.dotfiles/.config/nvim/ $HOME/.config/nvim/
+#nvim
+rm -rf $HOME/.config/nvim
+ln -sv $HOME/.dotfiles/.config/nvim $HOME/.config/nvim
 #alacritty
-rm -rf $HOME/.config/alacritty/alacritty.yaml
-ln -sv $HOME/.dotfiles/.config/alacritty $HOME/.config/alacritty/
+rm -rf $HOME/.config/alacritty
+ln -sv $HOME/.dotfiles/.config/alacritty $HOME/.config/alacritty
 #tmux.conf
 rm -rf $HOME/.tmux.conf
 ln -sv $HOME/.dotfiles/.tmux.conf $HOME
-#.zprofile
-rm -rf $HOME/.zprofile
-ln -sv $HOME/.dotfiles/.zprofile $HOME
 #Bin Folder
 rm -rf $HOME/bin
 ln -sv $HOME/.dotfiles/bin $HOME
@@ -66,5 +68,4 @@ ln -sv $HOME/.dotfiles/aliases.zsh $HOME/.oh-my-zsh/custom/aliases.zsh
 # Set macOS preferences
 # We will run this last because this will reload the shell
 #source .macos
-echo "Success"
 

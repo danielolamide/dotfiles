@@ -1,10 +1,7 @@
 alias reload=". ~/.zshrc"
 alias coding="cd ~/Coding/"
-alias js="cd ~/Coding/js/"
 alias downloads="cd ~/Downloads/"
-alias vim="nvim"
 alias dotfiles="cd ~/.dotfiles/"
-alias htdocs="cd ~/Coding/htdocs/"
 
 #Git
 alias gs="git status"

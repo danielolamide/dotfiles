@@ -29,7 +29,6 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'itchyny/lightline.vim'
 Plug '907th/vim-auto-save'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'preservim/nerdcommenter'
 Plug 'whatyouhide/vim-gotham'
@@ -52,6 +51,8 @@ Plug 'ray-x/lsp_signature.nvim'
 Plug 'voldikss/vim-floaterm'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
+"Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'ThePrimeagen/git-worktree.nvim'
 
 
 call plug#end()
@@ -113,17 +114,12 @@ map sl <C-w>l
 " Allow gf to open non-existent files
 map gf :edit <cfile><cr>
 
-"Reach
-au BufReadPost *.rsh set filetype=reach
-au Filetype reach set syntax=javascript
-
-
 
 
 "-------------------------------
 "Plugin Configurations
 "-------------------------------
-
+"
 "Vim
 source ~/.config/nvim/plug-config/ultisnips-config.vim
 source ~/.config/nvim/plug-config/nvim-tree.vim
@@ -131,16 +127,16 @@ source ~/.config/nvim/plug-config/telescope.vim
 source ~/.config/nvim/plug-config/floaterm.vim
 
 "Lua
-luafile ~/.config/nvim/lua/js-lsp.lua
-luafile ~/.config/nvim/lua/py-lsp.lua
-luafile ~/.config/nvim/lua/php-lsp.lua
-luafile ~/.config/nvim/lua/json-lsp.lua
-luafile ~/.config/nvim/lua/bash-lsp.lua
-luafile ~/.config/nvim/lua/html-lsp.lua
-luafile ~/.config/nvim/lua/css-lsp.lua
-source ~/.config/nvim/lua/_nvim-comp.lua
+"luafile ~/.config/nvim/lua/js-lsp.lua
+"luafile ~/.config/nvim/lua/py-lsp.lua
+"luafile ~/.config/nvim/lua/php-lsp.lua
+"luafile ~/.config/nvim/lua/bash-lsp.lua
+"luafile ~/.config/nvim/lua/html-lsp.lua
+"luafile ~/.config/nvim/lua/css-lsp.lua
+luafile ~/.config/nvim/lua/_nvim-comp.lua
 luafile ~/.config/nvim/lua/_nvim-tree.lua
-luafile ~/.config/nvim/lua/_lsp-installer.lua
 luafile ~/.config/nvim/lua/_lsp-config.lua
 luafile ~/.config/nvim/lua/_lsp-signature-config.lua
 luafile ~/.config/nvim/lua/_nvim-treesitter.lua
+"luafile ~/.config/nvim/lua/_null-ls.lua
+luafile ~/.config/nvim/lua/_lsp-installer.lua

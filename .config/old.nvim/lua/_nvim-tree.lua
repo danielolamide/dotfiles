@@ -1,4 +1,7 @@
 require'nvim-tree'.setup {
+  respect_buf_cwd = false,
+	-- Will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
+  create_in_closed_folder = false,
   -- disables netrw completely
   disable_netrw       = true,
   -- hijack netrw window on startup
@@ -86,6 +89,45 @@ require'nvim-tree'.setup {
     }
   },
 	renderer ={ 
+		add_trailing = false,
+		group_empty = false,
+		highlight_git = true,
+		highlight_opened_files="all",
+		icons = {
+			glyphs = {
+				default = "",
+				symlink = "",
+				folder = {
+				 arrow_closed = "",
+				 arrow_open = "",
+				 default = "",
+				 open = "",
+				 empty = "",
+				 empty_open = "",
+				 symlink = "",
+				 symlink_open = "",
+				},
+				git = {
+				 unstaged = "✗",
+				 staged = "✓",
+				 unmerged = "",
+				 renamed = "➜",
+				 untracked = "★",
+				 deleted = "",
+				 ignored = "◌",
+				},
+			},
+			padding =  " ",
+      symlink_arrow = " ➛ ",
+			show = {
+				file = true,
+				folder = true,
+				folder_arrow = false,
+				git = true,
+			},
+		},
+    root_folder_modifier = ":~",
+		special_files = {'README.md', 'Makefile', 'MAKEFILE'},
 		indent_markers = {
 			enable = true
 		}

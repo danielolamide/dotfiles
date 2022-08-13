@@ -3,10 +3,14 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'shivammathur/php'
 
-# Binaries
+#Shell
+brew 'zsh'
+
+# CLI-Tools
 brew 'gh'
 brew 'tree'
-brew 'zsh'
+brew 'bat'
+
 
 # Programming
 brew 'npm'
@@ -18,9 +22,9 @@ brew 'tmux'
 brew 'watchman'
 brew 'postgresql'
 cask 'ngrok'
-cask 'react-native-debugger'
 brew 'shivammathur/php/php@8.0'
 brew 'mysql' 
+brew 'ripgrep'
 
 # Apps
 cask 'spotify'
@@ -32,6 +36,9 @@ cask 'spectacle'
 cask 'figma'
 cask 'postman'
 cask 'tunnelblick'
+cask 'whatsapp'
+cask 'telegram'
+cask 'slack'
 cask 'docker'
 cask 'alacritty'
 cask 'skype'
