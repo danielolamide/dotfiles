@@ -42,6 +42,7 @@ cask 'slack'
 cask 'docker'
 cask 'alacritty'
 cask 'skype'
+cask 'notion'
 
 
 # Fonts
