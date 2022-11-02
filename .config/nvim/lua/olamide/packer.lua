@@ -59,6 +59,8 @@ return packer.startup(function(use)
   use { 'akinsho/bufferline.nvim', tag = "v2.*" }
 
   use "onsails/lspkind.nvim"
-  use {"akinsho/toggleterm.nvim", tag = 'v2.*'}
+  use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
+  use "tpope/vim-surround"
+  use { "ray-x/lsp_signature.nvim" }
 
 end)

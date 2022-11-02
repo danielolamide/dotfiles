@@ -23,20 +23,20 @@ local lspkeymaps = function(bufnr)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-  vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, opts)
+  vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, opts)
 end
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   if client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
   end
   lspkeymaps(bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
@@ -69,6 +69,11 @@ lspconfig['rust_analyzer'].setup {
   capabilities
 }
 lspconfig['sumneko_lua'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities
+}
+lspconfig['intelephense'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
   capabilities

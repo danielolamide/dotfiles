@@ -11,3 +11,7 @@ alias ga="git add"
 #Functions
 cd() { builtin cd "$@" && ls -a; }
 
+#java
+alias java-default=export JAVA_HOME=`/usr/libexec/java_home -v 19`
+
+
