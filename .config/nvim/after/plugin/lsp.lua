@@ -68,7 +68,7 @@ lspconfig['rust_analyzer'].setup {
   },
   capabilities
 }
-lspconfig['sumneko_lua'].setup {
+lspconfig['lua_ls'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
   capabilities

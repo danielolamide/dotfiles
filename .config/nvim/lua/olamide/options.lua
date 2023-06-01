@@ -15,3 +15,31 @@ vim.opt.splitbelow=true
 vim.opt.termguicolors=true
 vim.opt.completeopt={"menuone", "noselect"}
 
+
+vim.g.format_on_save = true
+vim.cmd('augroup format_on_save')
+vim.cmd('autocmd!')
+vim.cmd('autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()')
+vim.cmd('augroup END')
+
+function ToggleFormatOnSave()
+  if vim.g.format_on_save then
+    vim.cmd('augroup format_on_save')
+    vim.cmd('autocmd!')
+    vim.cmd('augroup END')
+    vim.g.format_on_save = false
+    print("Automatic formatting before saving is now disabled")
+  else
+    vim.cmd('augroup format_on_save')
+    vim.cmd('autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()')
+    vim.cmd('augroup END')
+    vim.g.format_on_save = true
+    print("Automatic formatting before saving is now enabled")
+  end
+end
+
+
+
+vim.cmd('command! ToggleFormatOnSave lua ToggleFormatOnSave()')
+
+

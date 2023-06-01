@@ -56,11 +56,13 @@ return packer.startup(function(use)
   use 'JoosepAlviste/nvim-ts-context-commentstring'
 
   --bufferline
-  use { 'akinsho/bufferline.nvim', tag = "v2.*" }
+  --[[ use { 'akinsho/bufferline.nvim', tag = "v2.*" } ]]
 
   use "onsails/lspkind.nvim"
   use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
   use "tpope/vim-surround"
   use { "ray-x/lsp_signature.nvim" }
 
+  --jdtls stuff
+  use 'mfussenegger/nvim-jdtls'
 end)

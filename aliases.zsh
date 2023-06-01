@@ -1,4 +1,4 @@
-alias reload=". ~/.zshrc"
+alias reload="source ~/.zshrc"
 alias coding="cd ~/Coding/"
 alias downloads="cd ~/Downloads/"
 alias dotfiles="cd ~/.dotfiles/"
@@ -12,6 +12,6 @@ alias ga="git add"
 cd() { builtin cd "$@" && ls -a; }
 
 #java
-alias java-default=export JAVA_HOME=`/usr/libexec/java_home -v 19`
-
+alias java19='export JAVA_HOME=$JAVA_19'
+alias java11='export JAVA_HOME=$JAVA_11'
 
