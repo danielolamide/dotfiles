@@ -43,12 +43,43 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+local languages = {
+  typescript = {
+    require('efmls-configs.formatters.prettier'),
+    require('efmls-configs.linters.eslint')
+  },
+  python = {
+    require('efmls-configs.formatters.black'),
+    require('efmls-configs.linters.flake8')
+  },
+  lua = {
+    require('efmls-configs.formatters.stylua'),
+    require('efmls-configs.linters.luacheck')
+  }
+}
+
 local lsp_config_ok, lspconfig = pcall(require, 'lspconfig')
 if not lsp_config_ok then
   return
 end
 
-require("nvim-lsp-installer").setup {}
+lspconfig['efm'].setup {
+  init_options = {
+    documentFormatting = true,
+    documentRangeFormatting = true,
+    hover = true,
+    documentSymbol = true,
+    codeAction = true,
+    completion = true,
+  },
+  settings = {
+    rootMarkers = { '.git/' },
+    languages = languages
+  },
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
 lspconfig['pyright'].setup {
   on_attach = on_attach,
   flags = lsp_flags,

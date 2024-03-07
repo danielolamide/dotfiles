@@ -10,6 +10,9 @@ alias ga="git add"
 
 #Functions
 cd() { builtin cd "$@" && ls -a; }
+current_time(){
+ date +"%Y%m%d%H%M%S"
+}
 
 #java
 alias java19='export JAVA_HOME=$JAVA_19'

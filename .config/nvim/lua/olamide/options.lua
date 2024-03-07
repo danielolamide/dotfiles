@@ -19,7 +19,7 @@ vim.opt.completeopt={"menuone", "noselect"}
 vim.g.format_on_save = true
 vim.cmd('augroup format_on_save')
 vim.cmd('autocmd!')
-vim.cmd('autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()')
+vim.cmd('autocmd BufWritePre * lua vim.lsp.buf.format()')
 vim.cmd('augroup END')
 
 function ToggleFormatOnSave()
@@ -31,7 +31,7 @@ function ToggleFormatOnSave()
     print("Automatic formatting before saving is now disabled")
   else
     vim.cmd('augroup format_on_save')
-    vim.cmd('autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()')
+    vim.cmd('autocmd BufWritePre * lua vim.lsp.buf.format({async = false})')
     vim.cmd('augroup END')
     vim.g.format_on_save = true
     print("Automatic formatting before saving is now enabled")

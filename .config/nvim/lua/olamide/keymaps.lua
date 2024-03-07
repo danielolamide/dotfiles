@@ -1,6 +1,10 @@
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
+function ReloadNvim()
+  vim.cmd('source $MYVIMRC')
+  print('Reloaded init.lua')
+end
 
 --shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -48,4 +52,7 @@ keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 --Bufferline
 keymap('n', "<S-l>", ":BufferLineCycleNext<CR>", opts)
 keymap('n', "<S-h>", ":BufferLineCyclePrev<CR>", opts)
-keymap ('n', "<S-x>", ":bdelete<CR>", opts)
+keymap('n', "<S-x>", ":bdelete<CR>", opts)
+
+--Reload nvim
+keymap('n', "<leader>sn", ":lua ReloadNvim()<CR>", opts)

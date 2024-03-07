@@ -27,11 +27,6 @@ brew cleanup
 #Set default shell as Zsh
 chsh -s /usr/local/bin/zsh
 
-#Packer Installation
-echo "Installing Packer"
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
 #NVM Install
 echo "Installing Node Version Manager"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash

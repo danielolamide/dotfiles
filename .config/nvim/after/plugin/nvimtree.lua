@@ -1,4 +1,9 @@
-require 'nvim-tree'.setup {
+local nvim_tree_status_ok, nvim_tree = pcall(require, 'nvim-tree')
+if not nvim_tree_status_ok then
+  return
+end
+
+nvim_tree.setup {
   -- disables netrw completely
   disable_netrw       = true,
   -- hijack netrw window on startup
@@ -73,13 +78,6 @@ require 'nvim-tree'.setup {
     -- height = 30,
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
     side = 'left',
-    mappings = {
-      -- custom only false will merge the list with the default mappings
-      -- if true, it will only use your list to set the mappings
-      custom_only = false,
-      -- list of mappings to set on the tree manually
-      list = {}
-    }
   },
   renderer = {
     indent_markers = {
